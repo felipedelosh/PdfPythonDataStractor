@@ -47,10 +47,10 @@ for i in _PDF_FILES_PATH:
 
 
 
-
-
-
 #SAVE all text in folder
 for i in _txt_data:
-    with open(i+".txt", "w",  encoding="UTF-8") as f:
+    _final_file_name = str(i).replace(".pdf", "-") # Erase .pdf of final txt
+
+    # Save a file
+    with open("output/"+_final_file_name+".txt", "w",  encoding="UTF-8") as f:
         f.write(_txt_data[i])

@@ -10,7 +10,7 @@ This program is create to read a folder. And then read al text in every PDF file
 ## :hammer:Funtions:
 
 - `Function 1`: Read all PDF in folder <br>
-- `Function 2`: Extract all text in PDF files<br>
+- `Function 2`: Extract all text in PDF files and save in output folder<br>
 
 
 ## :play_or_pause_button:How to execute a project
