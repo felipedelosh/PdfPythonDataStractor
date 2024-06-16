@@ -5,29 +5,26 @@
 ![Banner](docs/banner.png)
 :construction: Status of project :construction:
 <br><br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This program is create to read a folder. And then read al text in every PDF file to extract information.
 
 ## :hammer:Funtions:
 
-- `Function 1`: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.<br>
-- `Function 2`: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.<br>
-- `Function 3`: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.<br>
-- `Function 3a`: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.<br>
-- `Function 4`: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet.<br>
+- `Function 1`: Read all PDF in folder <br>
+- `Function 2`: Extract all text in PDF files<br>
 
 
 ## :play_or_pause_button:How to execute a project
 
-Double click
+Execute main.py
 
 ## :hammer_and_wrench:Tech.
 
 - Python
-- framework
+- PyMuPDF 
 
 ## :warning:Warning.
 
-- limitations.
+- No graphic interface
 
 ## Autor
 
