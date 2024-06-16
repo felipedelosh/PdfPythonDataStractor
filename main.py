@@ -7,6 +7,7 @@ WARNING: you need install:
 Enter a PDF files in folder: PDF
 """
 from tkinter import *
+from tkinter import ttk
 from controller import *
 
 class Software:
@@ -19,10 +20,10 @@ class Software:
         self.btnReadAllFiles = Button(self.canvas, text="READ FILES", command=self.btnReadAllFiles)
         self.lblHelpToChargeData = Label(self.canvas, text="Paso 2: Analizar todos los textos encontrados en PDF")
         self.btnChargeTXTData = Button(self.canvas, text="CHARGE DATA", command=self.btnChargeTXTData)
-        self.lblFooterProgram = Label(self.canvas, text="FelipedelosH")
-
         self.btnSaveAllPDFInTXTPages = Button(self.canvas, text="SAVE ALL IN TXT", command=self.saveAllInTXT)
-
+        self.viewALLText = Button(self.canvas, text="VIEW ALL TEXT", command=self.viewALLFilesInfo)
+        self.secondTEXT = None
+        self.lblFooterProgram = Label(self.canvas, text="FelipedelosH")
         self.vizualizedAndRun()
 
 
@@ -40,6 +41,8 @@ class Software:
         self.btnChargeTXTData.place(x=self.controller.w*0.04, y=self.controller.h*0.21)
         self.lblFooterProgram.place(x=self.controller.w*0.45, y=self.controller.h*0.9)
 
+        #self.btnSaveAllPDFInTXTPages.place(x=self.controller.w*0.05, y=self.controller.h*0.4)
+        self.viewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
         
         self.screem.mainloop()
 
@@ -76,6 +79,34 @@ class Software:
         else:
             self.btnSaveAllPDFInTXTPages['bg'] = "green"
             self.controller.saveAllInTXT()
+
+    def viewALLFilesInfo(self):
+        if self.controller._txt_data == {}:
+            self.viewALLText['bg'] = "red"
+        else:
+            self.viewALLText['bg'] = "green"
+
+            # SHOW MINI WINDOW
+            t = Toplevel(self.screem)
+            t.geometry("640x480")
+            t.title("PDF TEXT")
+            _data_combo = self.controller.getALLPagesNamesOfCurrentData()
+            combo = ttk.Combobox(t, values=_data_combo)
+            combo.place(x=260, y=20) 
+            text = Text(t, width=77, height=23)
+            text.insert(END, "CHANGE A OPTION TO READ TEXT...")
+            text.place(x=10, y=50)
+
+            if len(_data_combo) > 0:
+                combo.current(0)
+
+            combo.bind("<<ComboboxSelected>>", lambda event: self.changeVisorPage(event.widget.get(), text))
+
+
+    def changeVisorPage(self, event, TEXT_WIDGET):
+        TEXT_WIDGET.delete("1.0", END)
+        txt = self.controller.getTxtData(event)
+        TEXT_WIDGET.insert(END, txt)
         
 
 s = Software()

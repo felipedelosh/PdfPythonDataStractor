@@ -43,11 +43,32 @@ class Controller:
             return None
         
     
+    def getALLPagesNamesOfCurrentData(self):
+        if self._txt_data == {}:
+            return []
+        
+        data = []
+        for i in self._txt_data:
+            data.append(i)
+
+        return data
+    
+    def getTxtData(self, key):
+        txt = ""
+
+        try:
+            txt = self._txt_data[key]
+        except:
+            pass
+
+        return txt
+    
 
     def btnReadAllFiles(self):
         self._PDF_FILES_PATH = self.rtnArchieveFilesNames("PDF", ".pdf")
         return len(self._PDF_FILES_PATH) > 0
     
+
 
     def btnChargeTXTData(self):
         for i in self._PDF_FILES_PATH:
