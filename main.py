@@ -42,7 +42,7 @@ class Software:
         self.lblFooterProgram.place(x=self.controller.w*0.45, y=self.controller.h*0.9)
 
         #self.btnSaveAllPDFInTXTPages.place(x=self.controller.w*0.05, y=self.controller.h*0.4)
-        self.viewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
+        #self.viewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
         
         self.screem.mainloop()
 
@@ -68,9 +68,11 @@ class Software:
             if self.controller._txt_data != {}:
                 self.btnChargeTXTData['bg'] = "green"
                 self.btnSaveAllPDFInTXTPages.place(x=self.controller.w*0.05, y=self.controller.h*0.4)
+                self.viewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
             else:
                 self.btnChargeTXTData['bg'] = "red"
                 self.btnSaveAllPDFInTXTPages.place_forget()
+                self.viewALLText.place_forget()
 
 
     def saveAllInTXT(self):
