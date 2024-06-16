@@ -24,6 +24,7 @@ for i in scandir(_PDF_FOLDER_PATH):
 
 
 # Save all text content in PDF files
+_txt_data = {}  # key: pdf file name + page num
 
 for i in _PDF_FILES_PATH:
     _iterPdfPath = f"{_PDF_FOLDER_PATH}/{i}"
@@ -32,4 +33,24 @@ for i in _PDF_FILES_PATH:
     for num_page in range(document.page_count):
         pdf_page = document[num_page]
         txt = pdf_page.get_text()
-        print(txt)
+
+        # Save
+        _txt_data[i + str(num_page)] = txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#SAVE all text in folder
+for i in _txt_data:
+    with open(i+".txt", "w",  encoding="UTF-8") as f:
+        f.write(_txt_data[i])
