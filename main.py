@@ -21,8 +21,8 @@ class Software:
         self.lblHelpToChargeData = Label(self.canvas, text="Paso 2: Analizar todos los textos encontrados en PDF")
         self.btnChargeTXTData = Button(self.canvas, text="CHARGE DATA", command=self.btnChargeTXTData)
         self.btnSaveAllPDFInTXTPages = Button(self.canvas, text="SAVE ALL IN TXT", command=self.saveAllInTXT)
-        self.viewALLText = Button(self.canvas, text="VIEW ALL TEXT", command=self.viewALLFilesInfo)
-        self.secondTEXT = None
+        self.btnViewALLText = Button(self.canvas, text="VIEW ALL TEXT", command=self.viewALLFilesInfo)
+        self.btnSaveEXCELv1 = Button(self.canvas, text="SAVE EXCEL V1", command=self.saveExcelVr1)
         self.lblFooterProgram = Label(self.canvas, text="FelipedelosH")
         self.vizualizedAndRun()
 
@@ -42,7 +42,8 @@ class Software:
         self.lblFooterProgram.place(x=self.controller.w*0.45, y=self.controller.h*0.9)
 
         #self.btnSaveAllPDFInTXTPages.place(x=self.controller.w*0.05, y=self.controller.h*0.4)
-        #self.viewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
+        #self.btnViewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
+        #self.btnSaveEXCELv1.place(x=self.controller.w*0.5, y=self.controller.h*0.4)
         
         self.screem.mainloop()
 
@@ -68,11 +69,13 @@ class Software:
             if self.controller._txt_data != {}:
                 self.btnChargeTXTData['bg'] = "green"
                 self.btnSaveAllPDFInTXTPages.place(x=self.controller.w*0.05, y=self.controller.h*0.4)
-                self.viewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
+                self.btnViewALLText.place(x=self.controller.w*0.3, y=self.controller.h*0.4)
+                self.btnSaveEXCELv1.place(x=self.controller.w*0.5, y=self.controller.h*0.4)
             else:
                 self.btnChargeTXTData['bg'] = "red"
                 self.btnSaveAllPDFInTXTPages.place_forget()
-                self.viewALLText.place_forget()
+                self.btnViewALLText.place_forget()
+                self.btnSaveEXCELv1.place_forget()
 
 
     def saveAllInTXT(self):
@@ -84,9 +87,9 @@ class Software:
 
     def viewALLFilesInfo(self):
         if self.controller._txt_data == {}:
-            self.viewALLText['bg'] = "red"
+            self.btnViewALLText['bg'] = "red"
         else:
-            self.viewALLText['bg'] = "green"
+            self.btnViewALLText['bg'] = "green"
 
             # SHOW MINI WINDOW
             t = Toplevel(self.screem)
@@ -109,6 +112,14 @@ class Software:
         TEXT_WIDGET.delete("1.0", END)
         txt = self.controller.getTxtData(event)
         TEXT_WIDGET.insert(END, txt)
+
+
+    def saveExcelVr1(self):
+        if self.controller._txt_data == {}:
+            self.btnSaveEXCELv1['bg'] = "red"
+        else:
+            self.btnSaveEXCELv1['bg'] = "green"
+            self.controller.proceesAllInformationToExcelV1()
         
 
 s = Software()

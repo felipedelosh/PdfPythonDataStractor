@@ -15,6 +15,7 @@ class Controller:
         self.h = 480
         self._PDF_FILES_PATH = []
         self._txt_data = {}
+        self.config_v1_tokens = ["NUMERO DE CONTENEDOR", "BOOKING", "ORDEN DE COMPRA", "HORA EMISION", "FECHA EMISION", "PLACA DEL VEHICULO", "PLACA DE CARRETA"]
 
     def rtnArcheveInfo(self, path):
         info = None
@@ -90,3 +91,77 @@ class Controller:
             # Save a file
             with open("output/"+_final_file_name+".txt", "w",  encoding="UTF-8") as f:
                 f.write(self._txt_data[i])
+
+
+    def proceesAllInformationToExcelV1(self):
+        # EXCEL
+        _EXCEL = ""
+        _EXCEL_HEADER = ""
+        _EXCEL_DATA = {}
+        for i in self.config_v1_tokens:
+            _EXCEL_HEADER = _EXCEL_HEADER + i + "|"
+            _EXCEL_DATA[i] = []
+
+
+        # READ ALL TEXT and save in _EXCEL_DATA
+        for iterPAGE in self._txt_data:
+            for iterLINE in str(self._txt_data[iterPAGE]).split("\n"):
+                if str(iterLINE).strip() != "": 
+                    if self.config_v1_tokens[0] in iterLINE:
+                        _nro_contenedor = iterLINE.split(":")[1]
+                        _nro_contenedor = _nro_contenedor.strip()
+                        _EXCEL_DATA[self.config_v1_tokens[0]].append(_nro_contenedor)
+                        
+
+
+                    if self.config_v1_tokens[1] in iterLINE:
+                        _booking = iterLINE.split(":")[1]
+                        _booking = _booking.strip()
+                        _EXCEL_DATA[self.config_v1_tokens[1]].append(_booking)
+                       
+
+
+                    if self.config_v1_tokens[2] in iterLINE:
+                        _nro_buy_order = iterLINE.split(":")[1]
+                        _nro_buy_order = _nro_buy_order.strip()
+                        _EXCEL_DATA[self.config_v1_tokens[2]].append(_nro_buy_order)
+                        
+   
+
+                    if self.config_v1_tokens[3] in iterLINE:
+                        _hour = iterLINE.split(": ")[1]
+                        _hour = _hour.strip()
+                        _EXCEL_DATA[self.config_v1_tokens[3]].append(_hour)
+                       
+
+
+                    if self.config_v1_tokens[4] in iterLINE:
+                        _date = iterLINE.split(": ")[1]
+                        _date = _date.strip()
+                        _EXCEL_DATA[self.config_v1_tokens[4]].append(_date)
+                        
+
+
+                    if self.config_v1_tokens[5] in iterLINE:
+                        _id_vehicle = iterLINE.split(": ")[1]
+                        _id_vehicle = _id_vehicle.strip()
+                        _EXCEL_DATA[self.config_v1_tokens[5]].append(_id_vehicle)
+                        
+
+
+                    if self.config_v1_tokens[6] in iterLINE:
+                        _id_way = iterLINE.split(": ")[1]
+                        _id_way = _id_way.strip()
+                        _EXCEL_DATA[self.config_v1_tokens[6]].append(_id_way)
+        
+
+        len_data = len(_EXCEL_DATA)
+        _final_data = ""
+
+        for i in range(0, len_data):
+            print(i)
+
+
+            
+
+            
