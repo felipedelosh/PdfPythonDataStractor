@@ -157,11 +157,21 @@ class Controller:
 
         len_data = len(_EXCEL_DATA)
         _final_data = ""
+        # To mouve in matrix _EXCEL_DATA
+        _pivot_y = 0
+        for i in range(0, len_data-1):
+            for j in self.config_v1_tokens:
+                try:
+                    _final_data = _final_data + _EXCEL_DATA[j][_pivot_y] + "|"
+                except:
+                    pass
 
-        for i in range(0, len_data):
-            print(i)
+            _final_data = _final_data + "\n"
+            _pivot_y = _pivot_y + 1 
 
 
-            
+        # Save Excel
+        with open("EXCEL/dataPDF.xlsx", "w", encoding="UTF-8") as f:
+            f.write(_EXCEL_HEADER + "\n" + _final_data)
 
             
