@@ -169,9 +169,11 @@ class Controller:
             _final_data = _final_data + "\n"
             _pivot_y = _pivot_y + 1 
 
+        _EXCEL = _EXCEL_HEADER + "\n" + _final_data
+
 
         # Save Excel
         with open("EXCEL/dataPDF.xlsx", "w", encoding="UTF-8") as f:
-            f.write(_EXCEL_HEADER + "\n" + _final_data)
+            f.write(_EXCEL)
 
             

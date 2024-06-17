@@ -5,7 +5,7 @@
 ![Banner](Docs/banner.png)
 :construction: v1.0 :construction:
 <br><br>
-This program is create to read a folder. And then read al text in every PDF file to extract information.
+This program is create to read a folder. And then read al text in every PDF file to extract information. create a "excel file" .xlsx with all values delimitates by "|".
 
 ## :hammer:Funtions:
 
@@ -17,7 +17,14 @@ This program is create to read a folder. And then read al text in every PDF file
 
 ## :play_or_pause_button:How to execute a project
 
-Execute main.py
+Execute main.py and then follow the steps:
+
+1. Read all PDF files with button "READ FILES"
+2. Charge and Analize all text data.
+3. Press a option: 
+    1. Save all in text: take all PDF and convert in .txt and save it in folder "output"
+    2. See all text files in folder "PDF"
+    3. Save in EXCEL A PDF information.
 
 ## :hammer_and_wrench:Tech.
 
