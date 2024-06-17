@@ -3,7 +3,7 @@
 <h4>PDF Data stractor</h4>
 
 ![Banner](Docs/banner.png)
-:construction: In Construction :construction:
+:construction: v1.0 :construction:
 <br><br>
 This program is create to read a folder. And then read al text in every PDF file to extract information.
 
